@@ -1,0 +1,13 @@
+diff --git a/davarocr/davar_det/core/post_processing/post_mask_rcnn.py b/davarocr/davar_det/core/post_processing/post_mask_rcnn.py
+index 8b98471..ed9936f 100644
+--- a/davarocr/davar_det/core/post_processing/post_mask_rcnn.py
++++ b/davarocr/davar_det/core/post_processing/post_mask_rcnn.py
+@@ -101,7 +101,7 @@ class PostMaskRCNN(BasePostDetector):
+                     if len(curve_poly.shape) < 2:
+                         continue
+ 
+-                    curve_poly = curve_poly.astype(np.int)
++                    curve_poly = curve_poly.astype(np.int32)
+                     curve_poly = curve_poly.reshape(-1).tolist()
+                     det_result['points'].append(curve_poly)
+                     det_result['confidence'].append(prob)
