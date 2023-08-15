@@ -1,6 +1,8 @@
 # WeatherGovPlus
 Repository containing supplementary material for the DocEng 2023 paper "WEATHERGOV+".  Please see paper for details.
 
+**Download dataset files from: ** http://web.uvic.ca/~mcote/WeatherGovPlus/WeatherGovPlus.zip
+
 Requires:
 * Python 3.8
 * Docker
@@ -33,6 +35,9 @@ This has been tested and run on Linux Mint 20 (Ubuntu 20.04) and CUDA 11.6.  To 
 ## Run the NLP evaluation using MVP
 
 0. Create a virtualenv and install the packages in evaluation/requirements
-1. Unzip the folders in evaluations/WEATHER_PLUS 
+1. Unzip the folders in evaluations/WEATHER_PLUS and wg/
+   *  Your folder structure should be:
+       WEATHER_PLUS/TablesJPG
+       WEATHER_PLUS/TablesHTML_htags
 2. Run the MVP NLP algorithm:
-   python run_analysis.py --html-dir evaluaion/[davar,lgpma] [--run-teds] [--run-rouge] [--run-bleu]
+   python run_analysis.py --html-dir evaluation/[davar,lgpma] [--run-teds] [--run-rouge] [--run-bleu]
