@@ -26,11 +26,13 @@ This has been tested and run on Linux Mint 20 (Ubuntu 20.04) and CUDA 11.6.  To 
 ## Build and run the Docker images
 0. Install Docker with NVIDIA Toolkit
 1. Go to the recognition model folder
-    cd table_recognition/[Model]
+    `cd table_recognition/[Model]`
 2. Build the docker image 
-    nvidia-docker build -t [docker name] .
+    `nvidia-docker build -t [docker name] .`
 3. Run the inference.py script.  This will bind the evaluation folder to the docker image and save the results to evaluation/results
-    docker run --rm -it --runtime=nvidia --gpus all --mount type=bind,source=../../evaluation/WEATHERGOV_PLUS,target=/data,readonly --mount type=bind,source=../../evaluation/results,target=/results [docker name] python inference.py 
+    `docker run --rm -it --runtime=nvidia --gpus all --mount type=bind,source=../../evaluation/WEATHERGOV_PLUS,target=/data,readonly --mount type=bind,source=../../evaluation/results,target=/results [docker name] python inference.py`
+
+An example can be found in example.sh.
 
 ## Run the NLP evaluation using MVP
 
@@ -40,4 +42,15 @@ This has been tested and run on Linux Mint 20 (Ubuntu 20.04) and CUDA 11.6.  To 
        WEATHER_PLUS/TablesJPG
        WEATHER_PLUS/TablesHTML_htags
 2. Run the MVP NLP algorithm:
-   python run_analysis.py --html-dir evaluation/[davar,lgpma] [--run-teds] [--run-rouge] [--run-bleu]
+   `python run_analysis.py --html-dir evaluation/[davar,lgpma] [--run-teds] [--run-rouge] [--run-bleu]`
+
+If you use this code or dataset for your research, please cite:
+```
+@inproceedings{dash2023weathergov+,
+  title={WEATHERGOV+: A Table Recognition and Summarization Dataset to Bridge the Gap Between Document Image Analysis and Natural Language Generation},
+  author={Dash, Amanda and Cote, Melissa and Albu, Alexandra Branzan},
+  booktitle={Proceedings of the ACM Symposium on Document Engineering 2023},
+  pages={1--10},
+  year={2023}
+}
+```
